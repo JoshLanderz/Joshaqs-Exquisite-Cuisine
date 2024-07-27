@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="canonical" href=""/>
+    <link rel="shortcut icon" href="joshaqs.exquisite.cuisine Images/JoShaq's Exquisite Cuisine - Logo.png">
+    <link rel="stylesheet" href="css/order.css">
+    <link rel="stylesheet" href="script.js">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <!--Stylesheet Link for Social Media Icons-->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet"/>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+    <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+
+    <!--Latest Version - Font Awesome 6-->
+    <script src="https://kit.fontawesome.com/63d3360e1a.js" crossorigin="anonymous"></script>
+    
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="Keywords" content="Bakery, Catering, Bread, Small Business, Small Businesses In Barbados, Barbados Bakeries"></meta>
+    <meta name="Description" content="A small Bajan owned business that creates a wide array of foods, desserts and catering to events."></meta>
+    <meta name="robots" content="index, follow">
+    <title>Reviews | JoShaq's Exquisite Cuisine | Refined But Still Devine</title>
+    
+    <style>
+        /*Montserrat - Custom Google Font*/
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap');
+
+        /*Ubuntu - Custom Google Font*/
+        @import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap');
+        
+        </style>
+</head>
+<body>
+
+    <div class="topnav">
+        <a class="image-link" href="index.html">
+            <img src="joshaqs.exquisite.cuisine Images/JoShaq's Exquisite Cuisine - Logo.png" alt="Logo" style="width:42px; height:42px;">
+            </a>
+            <p><span style="font-weight:bold">Refined But Still Devine</span></p>
+        </div>
+
+        <div class="topnav2" id="myNavbar">
+            <a href="index.html">Home</a>
+            <a href="order.html">Order</a>
+            <a href="reviews.html">Reviews</a>
+            <a href="contact.html">Contact</a>
+            <a href="about.html">About</a>
+        </div>
+        <div class="dropdown">
+            <a onclick="myFunction4()" class="dropbtn"><i class="fa fa-bars"></i></a>
+        </div>
+            <div id="myDropdown" class="dropdown-content">
+              <a class="active1" href="index.html">Home</a>
+              <a href="order.html">Order</a>
+              <a href="reviews.html">Reviews</a>
+              <a href="contact.html">Contact</a>
+              <a href="about.html">About</a>
+            </div>
+
+            <!--Review Content-->
+            <div class="header_container">
+                <div class="header_icon">
+                <i class="fa fa-shopping-cart" style="font-size: 80px;"></i>
+                </div>
+                <div class="header_title">
+                  <h1>Order</h1>
+                </div>
+               </div>
+         
+	  <!--<h2 class="order-welcome"> Welcome valued Costumer!<br>Please fill out the Order Form below. </h2><br>-->
+	
+    <!--Section 1 (Form 1)-->
+    <div id="section1" class="form-container">
+		<form action="orders.php" method="post">
+    <div class="info-container">
+
+      <div class="info-hdr-container">
+        
+        <div class="info-h3-container">
+          <h4 class="info-h3">ENTER INFORMATION</h4>
+          </div>
+
+      <div class="info-pencil-container">
+          <i id="pencil" class="fa fa-pencil"></i>
+          </div>
+</div>
+
+<div class="info-padding" style="padding-left: 2em; padding-right: 2em;">
+			<!-- Inputs -->
+			<!--ID#:<br>
+			<input type="number" class="identification" id="id" placeholder="What's your ID#?" min="100" max="999" required><br><br>-->
+			
+			First Name:
+			<input type="text" id="firstname" placeholder="First Name" size="30" onclick="minLength()" required><br><br>
+			
+			Last Name:
+			<input type="text" id="lastname" placeholder="Last Name" size="30.5" required><br><br>
+			
+			Telephone Number:
+			<input type="tel" id="telephone" placeholder="###-####" min="1000000" max="9999999" required>
+
+      <!--Go to next section-->
+      <a href="#section2" id="proceed" class="proceed-btn" onclick="proceedToOrder()" style="pointer-events: auto;">Proceed To Order Menu</a>
+      <script>
+      function proceedToOrder() {
+
+                //If First Name is empty, style fname
+        if (document.getElementById("firstname").value == ""){
+          document.getElementById("firstname").style.border = "5px solid #DD811D";
+          alert('Invalid: First Name');
+          document.getElementById("proceed").style.pointerEvents = "auto";
+          document.getElementById("selection-menu").style.display = "none";
+          document.getElementById("section2").style.display = "none";
+        }
+
+         //If First Name is full & last name is empty, style last name
+         else if (document.getElementById("firstname").value != "" && document.getElementById("lastname").value == ""){
+          alert('Invalid: Last Name');
+          document.getElementById("firstname").style.border = "0px";
+          document.getElementById("lastname").style.border = "5px solid #DD811D";
+          document.getElementById("telephone").style.border = "0px";
+          document.getElementById("proceed").style.pointerEvents = "auto";
+          document.getElementById("selection-menu").style.display = "none";
+          document.getElementById("section2").style.display = "none";
+        }
+
+        else if (document.getElementById("firstname").value && document.getElementById("lastname").value != "" && document.getElementById("telephone").value == ""){
+          alert('Invalid: Telephone Number');
+          document.getElementById("firstname").style.border = "0px";
+          document.getElementById("lastname").style.border = "0px";
+          document.getElementById("telephone").style.border = "5px solid #DD811D";
+          document.getElementById("proceed").style.pointerEvents = "auto";
+          document.getElementById("selection-menu").style.display = "none";
+          document.getElementById("section2").style.display = "none";
+        }
+
+        else {
+          alert("Login Complete");
+          document.getElementById("firstname").style.border = "0px";
+          document.getElementById("lastname").style.border = "0px";
+          document.getElementById("telephone").style.border = "0px";
+
+          document.getElementById("firstname").disabled = true;
+          document.getElementById("lastname").disabled= true;
+          document.getElementById("telephone").disabled = true;
+
+          document.getElementById("proceed").style.pointerEvents = "none";
+          document.getElementById("section2").style.display = "block";
+          document.getElementById("selection-menu").style.display = "block";
+        }
+    }
+      </script>
+    </div>
+    </div>
+
+
+<!--Section 2-->
+<section id="section2"></section>
+    <div id ="selection-menu" class="selection-container" style="display: none;">
+
+      <div class="info-hdr-container">
+        
+        <div class="info-h3-container">
+          <h4 class="info-h3">MAKE A SELECTION</h4>
+          </div>
+
+      <div class="info-pencil-container">
+          <i id="pencil" class="fa fa-hand-o-down"></i>
+          </div>
+</div>
+      <div class="info-padding" style="padding-left: 2em; padding-right: 2em;">
+        <p id="proceed-info" style="font-size:small; font-weight:bold; width:fit-content; background-color: white; color: black;">("Select at least one product & type of order to proceed")</p></h3>
+			<ul>
+        <input type="checkbox" id="cupcakes" name="choice[]" value="Cupcakes#2.50" style="cursor: pointer;" onclick="Cupcakes()">
+				<label for="cupcake"> Cupcakes 🧁 - $2.50 </label><br>
+
+        <input type="checkbox" id="pizza" name="choice[]" value="Pizza Slice#8.00" style="cursor: pointer;" onclick="Pizza()">
+				<label for="pizza"> Pizza Slice 🍕 - $8.00 </label><br>
+
+        <input type="checkbox" id="dessert" name="choice[]" value="Desserts#2.50" style="cursor: pointer;" onclick="Dessert()">
+				<label for="dessert"> Desserts 🍩 - $2.50 </label><br>
+
+				<input type="checkbox" id="cake" name="choice[]" value="Whole Cake#30.00" style="cursor: pointer;" onclick="Cake()">
+				<label for="cake"> Whole Cake 🎂 - $30.00 </label><br>
+				
+
+        <input type="checkbox" id="cakeslice" name="choice[]" value="One (1) Slice of Cake#5.00" style="cursor: pointer;" onclick="cakeSlice()">
+				<label for="cakeslice">One (1) Slice of Cake 🍰 - $5.00</label><br>
+
+				<input type="checkbox" id="cheesecake" name="choice[]" value="Cheesecake Slice#7.00" style="cursor: pointer;" onclick="cheeseCake()">
+
+				<label for="cheesecake"> Cheesecake Slice 🧀 - $7.00 </label>
+      </ul>
+      <!--Pickup or Delivery-->
+      <div class="type-order-container">
+      <div class="pickup-text-container">
+        <p class="pickup-text"><i class="fa fa-hand-paper-o" style="margin-right: 5px;"></i></i>Pickup</p>
+      </div>
+
+
+      <div class="pickup-switch-container" style="margin-right: 2em;">
+      <label class="switch">
+        <input id="pickup-switch" type="checkbox" onclick="sliderPickup()" checked>
+        <span class="slider round"></span>
+      </label>
+    </div>
+
+    <div class="delivery-text-container">
+      <p class="delivery-text"><i class="fa fa-truck" style="margin-right: 5px;"></i>Delivery</p>
+    </div>
+    <div class="delivery-switch-container">
+    <label class="switch">
+      <input id="delivery-switch" type="checkbox" onclick="sliderPickup()"> 
+      <span class="slider round"></span>
+    </label>
+  </div>
+    </div>
+
+    <h4 class="info-h3">YOUR SELECTION<i class="fa fa-check" style="margin-left: 8px;"></i></h4>
+
+        <!--Container for Selections-->
+        <div class="selection-container2">
+        <!--Powder Blue Cupcake (Selection)-->
+        <div class="selection-images">
+        <img class="selection-img w3-animate-opacity" id="cupcake-img" style="display:none" src="joshaqs.exquisite.cuisine Images/Cupcakes/Powder Blue Cupcakes - Images/Powder Blue Cupcakes - Images (a).jpg">
+
+        <p class="w3-animate-opacity" id="cupcake-desc" style="display: none;">Powder Blue Cupcake
+        </p>
+      </div>
+
+        <!--Pizza (Selection)-->
+        <div class="selection-images">
+        <img class="selection-img w3-animate-opacity" id="pizza-img" style="display:none" src="joshaqs.exquisite.cuisine Images/Pizzas/Hawaiin Pizza.jpg">
+
+        <p class="w3-animate-opacity" id="pizza-desc" style="display:none;">Pizza
+        </p>
+      </div>
+
+        <!--Desserts (Selection)-->
+        <div class="selection-images">
+        <img class="selection-img w3-animate-opacity"       id="dessert-img" style="display:none" src="/joshaqs.exquisite.cuisine Images/Cheesecakes/Cheeesecake w Fruit Toppings - Images/Cheeesecake w Fruit Toppings.jpg"> 
+        <p class="w3-animate-opacity" id="dessert-desc"       style="display:none;">Desserts
+        </p>
+      </div>
+
+       <!--Chocolate Cake (Selection)-->
+       <div class="selection-images">
+         <img class="selection-img w3-animate-opacity"       id="chocolate-cake-img" style="display:none" src="joshaqs.exquisite.cuisine Images/Cakes/Two Layer 6 inch Chocolate & Vanilla Cake - Images/Chocolate & Vanilla Drip Cake Topped with Chocolates & Oreos and 6 Vanilla Cupcakes (a).jpg"> 
+         <p class="w3-animate-opacity" id="chocolate-cake-desc" style="display:none;">Chocolate Cake
+         </p>
+       </div>
+
+      <!--Slice of Cake (Selection)-->
+      <div class="selection-images">
+        <img class="selection-img w3-animate-opacity"
+        id="cakeslice-img" style="display:none" src="joshaqs.exquisite.cuisine Images/Cakes/Blackforest Cake - Chocolate Cake w Cherry Filling & Vanilla Buttercream - Images/Blackforest Cake - w Cherry Filling n' Vanilla Buttercream (a).jpg" style="display:none;">
+        <p class="w3-animate-opacity" id="cakeslice-desc" style="display:none;">One (1) Slice of Cake
+        </p>
+      </div>
+
+      <!--Cheesecake Slice (Selection)-->
+      <div class="selection-images">
+        <img class="selection-img w3-animate-opacity"
+        id="cheesecake-img" style="display:none" src="joshaqs.exquisite.cuisine Images/Cheesecakes/Classic Cheesecake Sandwiched between 2 Layers of Vanilla Cake - Images/Classic Cheesecake Sandwiched between 2 Layers of Vanilla Cake (b).jpg" style="display:none;">
+        <p class="w3-animate-opacity" id="cheesecake-desc" style="display:none;">One (1) Slice of Cake
+        </p>
+      </div>
+    </div>
+
+    <script>
+      function Save(){
+        var pickSwitch = document.getElementById("pickup-switch");
+        var delivSwitch = document.getElementById("delivery-switch");
+
+        if(pickSwitch && delivSwitch.checked){
+          alert("Please select one order type");
+          document.getElementById("submit").style.disabled = false;
+        } else {
+          document.getElementById("submit").style.disabled = true;
+        }
+      }
+    </script>
+    
+<div class="selection-buttons">
+			<input type ="submit" value="Save" id="submit" style="cursor: pointer;" onclick="Save()" disabled >
+			<input type="reset" class="reset" value="Reset" style="cursor: pointer;" onclick="Reset()">
+    </div>
+
+    <div class="return-home">
+      <a class="return-home-link" href="index.html">Return to home page</a>
+  </div>
+
+    <!--<div class="delete-customer">
+			<p> Also, you can delete a customer by their ID# by clicking <a href="deleteorder.html"> here. </a>
+      </div>-->
+      </div>
+    </form>
+    </div>
+  </div>
+</div>
+</div>
+
+
+
+              <div class="bottom_logo">
+                <img src="joshaqs.exquisite.cuisine Images/JoShaq's Exquisite Cuisine - Logo.png" alt="Image of JoShaq's Exqusite Cuisine">
+            </div>
+
+            
+            <div class="bottomnav">
+                <div class="col1">
+                    <h3>About</h3>
+                <p class="nav-content">Located south east of St. Micahel, JoShaq's Exquisite Cuisine is locally known for their refined but devine products such as custom made cakes and cupcakes, sweet and savory deserts
+                (including pastries), pizza and catering to events whilst thriving to go above and beyond to exceed customers' expectations.
+                </p>
+            </div>
+                <div class="col2">
+                    <h3>Contact</h3>
+                    <div class="col2_contact">
+                    <p class="nav-content">Bonnetts, Brittons Hill</p>
+                    <p class="nav-content">St. Michael</p>
+                    <p class="nav-content">Barbados</p>
+                    <p class="nav-content">(246) 846-8811</p>
+                </div>
+                <div class="col2_email">
+                    Email:&nbsp;<a href="mailto:joshaqs.exquisite.cuisine@gmail.com" style="color: blue;">joshaqs.exquisite.cuisine@gmail.com</a>
+                </div>
+                </div>
+    
+        <div class="col3">
+        <h3 class="footer-h3">Opening Hours</h3>
+        <p class="nav-content">Sunday to Friday 9:00 am - 9:00      pm</p>
+        <p class="nav-content">Saturday 9:00 am - 10:00 pm</p>
+        <div class="social-links">
+        <a class="fa fa-instagram" href="https://www.instagram.com/joshaqs.exquisite.cuisine/" target="_blank"></a>
+        <a class="fa fa-facebook" href="https://web.whatsapp.com/send?phone=12468468811&text&app_absent=0" target="_blank"></a>
+        <a class="fa fa-whatsapp"></a>
+                    </div>
+                </div>
+            </div>
+
+
+            <!--Back To Top Button
+    <div class="back-to-top-wrapper">
+        <a href="#top" class="fa fa-arrow-circle-o-up" id="back-to-top-link" style="font-size: 40px;"></a>
+      </div>
+      -->
+
+</body>
+</html>
+
+<script>
+  //Selection Image - Cupcake Selection Display
+function Cupcakes() {
+  var checkBox1 = document.getElementById("cupcakes");
+  var img = document.getElementById("cupcake-img");
+  var desc = document.getElementById("cupcake-desc");
+  var save = document.getElementById("submit");
+
+  if (checkBox1.checked == true){
+    img.style.display = "block";
+    desc.style.display = "block";
+    save.disabled = false;
+
+  } else {
+     img.style.display = "none";
+     desc.style.display = "none";
+     save.disabled = true;
+  }
+}
+
+
+//Selection Image - Pizza Selection Display
+function Pizza() {
+  var checkBox2 = document.getElementById("pizza");
+  var img2= document.getElementById("pizza-img");
+  var desc2 = document.getElementById("pizza-desc");
+  var save = document.getElementById("submit");
+  var proceedText = document.getElementById("proceed-info");
+
+  if (checkBox2.checked == true){
+    img2.style.display = "block";
+    desc2.style.display = "block";
+    
+    save.disabled = false;
+  } else {
+     img2.style.display = "none";
+     desc2.style.display = "none";
+     
+     save.disabled = true;
+  }
+}
+
+//Selection Image - Dessert Selection Display
+function Dessert() {
+  var checkBox3 = document.getElementById("dessert");
+  var img3 = document.getElementById("dessert-img");
+  var desc3 = document.getElementById("dessert-desc");
+  var save = document.getElementById("submit");
+  var proceedText = document.getElementById("proceed-info");
+
+  if (checkBox3.checked == true){
+    img3.style.display = "block";
+    desc3.style.display = "block";
+    
+    save.disabled = false;
+  } else {
+     img3.style.display = "none";
+     desc3.style.display = "none";
+     
+     save.disabled = true;
+  }
+}
+
+//Selection Image - Whole Cake Selection Display
+function Cake() {
+  var checkBox4 = document.getElementById("cake");
+  var img4 = document.getElementById("chocolate-cake-img");
+  var desc4 = document.getElementById("chocolate-cake-desc");
+  var save = document.getElementById("submit");
+  var proceedText = document.getElementById("proceed-info");
+
+  if (checkBox4.checked == true){
+    img4.style.display = "block";
+    desc4.style.display = "block";
+    
+    save.disabled = false;
+  } else {
+     img4.style.display = "none";
+     desc4.style.display = "none";
+     
+     save.disabled = true;
+  }
+}
+
+//Selection Image - Slice Of Cake Selection Display
+function cakeSlice() {
+  var checkBox5 = document.getElementById("cakeslice");
+  var img5 = document.getElementById("cakeslice-img");
+  var desc5 = document.getElementById("cakeslice-desc");
+  var save = document.getElementById("submit");
+  var proceedText = document.getElementById("proceed-info");
+
+  if (checkBox5.checked == true){
+    img5.style.display = "block";
+    desc5.style.display = "block";
+    
+    save.disabled = false;
+  } else {
+     img5.style.display = "none";
+     desc5.style.display = "none";
+     save.disabled = true;
+  }
+}
+
+//Selection Image - Cheesecake Slice Selection Display
+function cheeseCake() {
+  var checkBox6 = document.getElementById("cheesecake");
+  var img6 = document.getElementById("cheesecake-img");
+  var desc6 = document.getElementById("cheesecake-desc");
+  var save = document.getElementById("submit");
+  var proceedText = document.getElementById("proceed-info");
+
+  if (checkBox6.checked == true){
+    img6.style.display = "block";
+    desc6.style.display = "block";
+    
+    save.disabled = false;
+  } else {
+     img6.style.display = "none";
+     desc6.style.display = "none";
+     save.disabled = true;
+  }
+}
+
+function Reset(){
+    var img = document.getElementById("cupcake-img");
+    var desc = document.getElementById("cupcake-desc");
+    var img2 = document.getElementById("pizza-img");
+    var desc2 = document.getElementById("pizza-desc");
+    var img3 = document.getElementById("dessert-img");
+    var desc3 = document.getElementById("dessert-desc");
+    var img4 = document.getElementById("chocolate-cake-img");
+    var desc4 = document.getElementById("chocolate-cake-desc");
+    var img5 = document.getElementById("cakeslice-img");
+    var desc5 = document.getElementById("cakeslice-desc");
+    var img6 = document.getElementById("cheesecake-img");
+    var desc6 = document.getElementById("cheesecake-desc");
+
+    document.getElementById("firstname").disabled = false;
+    document.getElementById("lastname").disabled= false;
+    document.getElementById("telephone").disabled = false;
+
+    document.getElementById("proceed").style.pointerEvents = "auto";
+    document.getElementById("selection-menu").style.display = "none";
+    document.getElementById("section2").style.display = "none";
+    
+
+
+    img.style.display = "none";
+    desc.style.display = "none";
+    img2.style.display = "none";
+    desc2.style.display = "none";
+    img3.style.display = "none";
+    desc3.style.display = "none";
+    img4.style.display = "none";
+    desc4.style.display = "none";
+    img5.style.display = "none";
+    desc5.style.display = "none";
+    img6.style.display = "none";
+    desc6.style.display = "none";
+    save.disabled = true;
+  }
+
+
+    function myFunction4() {
+      document.getElementById("myDropdown").classList.toggle("show");
+    }
+    
+    // Close the dropdown menu if the user clicks outside of it
+    window.onclick = function(event) {
+      if (!event.target.matches('.dropbtn')) {
+        var dropdowns = document.getElementsByClassName("dropdown-content");
+        var i;
+        for (i = 0; i < dropdowns.length; i++) {
+          var openDropdown = dropdowns[i];
+          if (openDropdown.classList.contains('show')) {
+            openDropdown.classList.remove('show');
+          }
+        }
+      }
+    }
+    
+
+</script>
